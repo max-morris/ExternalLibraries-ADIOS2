@@ -133,7 +133,7 @@ elif [ -n "${MPI_INC_DIRS}" ] && [ -n "${MPI_LIBS}" ]; then
   MPI_LIB_NAMES=
   for MPI_LIB in ${MPI_LIBS}; do
     for MPI_LIB_DIR in ${MPI_LIB_DIRS}; do
-      for MPI_LIB_FILE in "${MPI_LIB_DIR}/lib${MPI_LIB}.so" "${MPI_LIB_DIR}/lib${MPI_LIB}.a"; do
+      for MPI_LIB_FILE in "${MPI_LIB_DIR}/lib${MPI_LIB}".{so,dylib,a}; do
         if [ -f "${MPI_LIB_FILE}" ]; then
           MPI_LIB_NAMES="${MPI_LIB_NAMES}${MPI_LIB_NAMES:+;}${MPI_LIB}"
           MPI_MANUAL_OPTIONS="${MPI_MANUAL_OPTIONS} -DMPI_${MPI_LIB}_LIBRARY=${MPI_LIB_FILE}"
